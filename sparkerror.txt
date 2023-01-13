@@ -1,0 +1,24 @@
+# switch to Hadoop user
+
+# Install scala-sbt via the latest command available in the terminal
+https://www.scala-sbt.org/download.html and paste in terminal 
+
+
+# enter sbt in the terminal to verify installation
+# create ExceptionHandlingTest.scala
+create sbt dependency file 'exceptionhandlingtest.sbt'
+
+# start spark master & worker
+$ spark-master.sh
+$ spark-worker.sh spark://Ubuntu.myguest.virtualbox.org:7077/
+
+# go back to the terminal pointing to the directory with scala and sbt file and create the sbt
+package
+$ sbt package
+
+# submit the program to spark
+$ spark-submit –class 'ExceptionHandlingTest' –master 'spark://Ubuntu.myguest.virtualbox.org:7077/' \target/scala-2.12/exceptionhandling-2.12-1.0.jar
+
+
+
+
